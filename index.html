@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Frentals</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<!-- Load an icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.css" integrity="sha512-vEia6TQGr3FqC6h55/NdU3QSM5XR6HSl5fW71QTKrgeER98LIMGwymBVM867C1XHIkYD9nMTfWK2A0xcodKHNA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+body,h1,h5 {font-family: "Raleway", sans-serif}
+body, html {height: 100%;background-color: black; }
+.bgimg {
+  /* background-image: url('/frentals/earn_slide.jpg');
+  filter: grayscale(1); */
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+.php{
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<div class="bgimg w3-display-container w3-text-white">
+  <div class="w3-display-middle w3-jumbo">
+    <p>Frentals</p>
+    <div class="slides w3-display-bottommiddle w3-container w3-xlarge"><p>SUSTAINABLE</p></div>
+  <div class="slides w3-display-bottommiddle w3-container w3-xlarge"><p>EARN</p></div>
+  <div class="slides w3-display-bottommiddle w3-container w3-xlarge"><p>EMERGENCY</p></div>
+  </div>
+  <div class="w3-display-topleft w3-container w3-xlarge">
+    <p><button onclick="document.getElementById('login').style.display='block'" class="w3-button w3-black">Login</button></p>
+    <p><button onclick="document.getElementById('signup').style.display='block'" class="w3-button w3-black">Signup</button></p>
+    <p><button onclick="document.getElementById('contact').style.display='block'" class="w3-button w3-black">contact</button></p>
+  </div>
+  
+  <div class="w3-display-bottomleft w3-container">
+    <div class="php"></div>
+    <p class="w3-xlarge">SEE smarter rentals with frentals </p>
+  
+    <p class="w3-large">hyderabad | india</p>
+    <p>made by <a href="https://www.instagram.com/sufyaan" target="_blank">Sufyaan</a></p>
+  </div>
+</div>
+
+<!-- login Modal -->
+<div id="login" class="w3-modal">
+  <div class="w3-modal-content w3-animate-zoom">
+    <div class="w3-container w3-black">
+      <span onclick="document.getElementById('login').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
+      <h1>Login</h1>
+    </div>
+    <div class="w3-container" id="loginform">
+      <p>LOGIN :</p>
+      <form action="/frentals/forms/login.php" target="_blank">
+        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="name"></p>
+        <!-- <p><input class="w3-input w3-padding-16 w3-border" type="number" placeholder="How many people" required name="People"></p>
+        <p><input class="w3-input w3-padding-16 w3-border" type="datetime-local" placeholder="Date and time" required name="date" value="2020-11-16T20:00"></p> -->
+        <p><input class="w3-input w3-padding-16 w3-border" type="password" placeholder="Password" required name="password"></p>
+        <p><button class="w3-button" name="submit" type="submit">Submit</button></p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Signup Modal -->
+<div id="signup" class="w3-modal">
+  <div class="w3-modal-content w3-animate-zoom">
+    <div class="w3-container w3-black">
+      <span onclick="document.getElementById('signup').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
+      <h1>Signup</h1>
+    </div>
+    <div class="w3-container" id="loginform">
+      <p>SIGN UP AND EARN:</p>
+      <form action="/frentals/forms/signup.php" >
+        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="name"></p>
+        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="insta or fb or linkedin" required name="socials"></p>
+        <p><input class="w3-input w3-padding-16 w3-border" type="email" placeholder="Email" required name="email"></p>
+        <p><input class="w3-input w3-padding-16 w3-border" type="password" placeholder="Password" required name="password"></p>
+        <p><button class="w3-button" name="submit" type="submit">Submit</button></p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Contact Modal -->
+<div id="contact" class="w3-modal">
+  <div class="w3-modal-content w3-animate-zoom">
+    <div class="w3-container w3-black">
+      <span onclick="document.getElementById('contact').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
+      <h1>Contact</h1>
+    </div>
+    <div class="w3-container">
+      <p>ask for ANYTHING or just send us a message:</p>
+      <form action="/frentals/forms/contact.php" >
+        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="name"></p>
+        <p><input class="w3-input w3-padding-16 w3-border" type="email" placeholder="email" required name="email"></p>
+        <!-- <p><input class="w3-input w3-padding-16 w3-border" type="datetime-local" placeholder="Date and time" required name="date" value="2020-11-16T20:00"></p> -->
+        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message \ Special requirements" required name="message"></p>
+        <p><button class="w3-button" name="submit" type="submit">SEND MESSAGE</button></p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.js" integrity="sha512-hkvXFLlESjeYENO4CNi69z3A1puvONQV5Uh+G4TUDayZxSLyic5Kba9hhuiNLbHqdnKNMk2PxXKm0v7KDnWkYA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+  var slideIndex = 0;
+  carousel();
+  
+  function carousel() {
+    var i;
+    var x = document.getElementsByClassName("slides");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none"; 
+    }
+    slideIndex++;
+    if (slideIndex > x.length) {slideIndex = 1} 
+    x[slideIndex-1].style.display = "block"; 
+    setTimeout(carousel, 2000); 
+  }
+  </script>
+  
+</body>
+</html>
+

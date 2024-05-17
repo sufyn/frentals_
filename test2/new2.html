@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Location-Based Community Page</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="/frentals/css/community.css"> -->
+<style>
+    body {
+  background-color: #242424; /* Dark grey background */
+  color: white; /* White text */
+}
+
+/* Location Container */
+#locContainer {
+  position: fixed;
+  top: 0;
+  left: 0; /* Align to left side */
+  width: 25%; /* Take up 25% of screen width */
+  height: 50px;
+  background-color: #1a1a1a; /* Darker grey for location container */
+  color: white;
+  text-align: center;
+  font-size: 18px; /* Adjust font size for better readability */
+  padding: 10px;
+  transition: background-color 0.3s ease-in-out; /* Smooth transition on hover */
+}
+
+#locContainer:hover {
+  background-color: #333333; /* Slightly lighter grey on hover */
+}
+
+#locContainer i { /* Style icon within location container */
+  margin-right: 5px;
+}
+
+/* Posts Section */
+#posts {
+  text-align: center; /* Center posts horizontally */
+  padding: 20px 0; /* Add some top and bottom padding */
+}
+
+.post { /* Style individual posts */
+  margin: 20px auto; /* Add margin for spacing and center horizontally */
+  width: 60%; /* Set maximum width for responsive behavior */
+  background-color: #212121; /* Dark grey background for posts */
+  color: white;
+  padding: 20px;
+  border-radius: 5px; /* Add rounded corners for a softer look */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+.post:hover {
+  transform: scale(1.02); /* Slightly enlarge post on hover */
+}
+
+.post img { /* Style post images */
+  max-width: 100%; /* Set maximum width for responsive behavior */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 10px;
+}
+
+.post-content { /* Style post content area */
+  padding: 10px 0; /* Add some top and bottom padding */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Light border to separate content */
+}
+
+/* Form Elements */
+#upload,
+#postContent,
+#submit {
+  display: inline-block; /* Display elements inline */
+  margin: 10px; /* Add some margin for spacing */
+  padding: 10px 20px; /* Add padding for better visual weight */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Add rounded corners */
+  cursor: pointer; /* Indicate clickable elements */
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+#upload {
+  background-color: #333333; /* Darker grey for camera icon */
+  color: white;
+  font-size: 18px; /* Adjust font size for icon */
+}
+
+#upload:hover {
+  background-color: #444444; /* Slightly lighter grey on hover */
+}
+
+#postContent {
+  background-color: #333333; /* Darker grey for post content input */
+  color: white;
+}
+
+#postContent:hover {
+  background-color: #444444; /* Slightly lighter grey on hover */
+}
+
+#submit {
+  background-color: #007bff; /* Blue color for submit button */
+  color: white;
+}
+
+#submit:hover {
+  background-color: #0069d9; /* Slightly darker blue on hover */
+}
+.form-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);  /* Center the container horizontally and vertically */
+  display: flex; /* Arrange inputs horizontally */
+  justify-content: center; /* Center inputs within the container */
+  align-items: center; /* Vertically align inputs in the center (optional) */
+}
+
+.form-container input {
+  margin: 10px; /* Add spacing between inputs */
+  padding: 10px 20px; /* Add padding for better visual weight */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Light border */
+  border-radius: 5px; /* Rounded corners */
+}
+
+input {
+  width: 100%; /* Make input fields full width */
+  padding: 10px; /* Consistent padding */
+  margin-bottom: 10px; /* Consistent margin */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Light border for input fields */
+    border-radius: 5px; /* Add rounded corners */
+    background-color: #333333; /* Darker grey for input fields */
+    color: white;
+}
+
+input:focus {
+  border-color: #007bff; /* Blue border color on focus */
+}
+
+nav {
+  position: fixed; /* Keep navigation bar fixed at the top */
+  top: 0;
+  width: 100%; /* Span across entire width */
+  height: 60px; /* Set a fixed height */
+  background-color: #1a1a1a; /* Dark grey for navigation bar */
+  color: white;
+  display: flex; /* Use flexbox for horizontal alignment */
+  justify-content: space-between; /* Distribute elements evenly horizontally */
+  align-items: center; /* Align elements vertically in the center */
+  padding: 0 10px; /* Add some horizontal padding */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  transition: background-color 0.3s ease-in-out; /* Smooth transition on hover */
+}
+
+nav a {
+  text-decoration: none; /* Remove underline from links */
+  color: white; /* White text for links */
+  padding: 10px 20px; /* Consistent padding for links */
+  transition: color 0.3s ease-in-out; /* Smooth hover effect for links */
+}
+
+nav a:hover {
+  color: #ccc; /* Light grey for links on hover */
+}
+
+#postForm {
+  display: flex; /* Use flexbox for layout */
+  justify-content: center; /* Center elements horizontally */
+  align-items: center; /* Center elements vertically */
+  /* Additional styles you might already have for #postForm */
+position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+#postForm .w3-col { /* Target the inner columns */
+  width: auto; /* Remove fixed width for responsive behavior */
+  margin: 0 10px; /* Add some margin for spacing between elements */
+}
+
+</style>
+</head>
+<body>
+
+  <header class="w3-container w3-center w3-blue w3-padding-16">
+    <a href="main.html" class="w3-button w3-black w3-round-large">
+      <i class="fa fa-arrow-left"></i> Back
+    </a>
+    <h1 class="w3-text-white">Community Page</h1>
+  </header>
+
+  <nav class="w3-bar w3-border-bottom w3-light-grey">
+    <a href="#home" class="w3-bar-item w3-button w3-hover-text-black w3-text-grey">Home</a>
+    <a href="#explore" class="w3-bar-item w3-button w3-hover-text-black w3-text-grey">Explore</a>
+    <a href="#notifications" class="w3-bar-item w3-button w3-hover-text-black w3-text-grey">Notifications</a>
+    <a href="#profile" class="w3-bar-item w3-button w3-hover-text-black w3-text-grey">Profile</a>
+    <a href="index.html" class="w3-right w3-button w3-black w3-round-large">Logout</a>
+  </nav>
+
+  <div id="locContainer" class="w3-container w3-padding-16 w3-center">
+    <h3 class="w3-text-black">Location: <i class="fa fa-map-marker w3-text-teal"></i> City</h3>
+    <button class="w3-button w3-teal w3-round-large w3-hover-text-white">Refresh Location</button>
+  </div>
+
+  <section id="home" class="w3-container w3-padding-32">
+    <h2 class="w3-center w3-text-black">Welcome to the Community Page</h2>
+    <p class="w3-text-black">Discover and connect with people in your local area.</p>
+  </section>
+
+  <section id="explore" class="w3-container w3-padding-16">
+    <h2 class="w3-center w3-text-black">Explore</h2>
+
+    <div id="posts" class="w3-container w3-padding-16 w3-center">
+      <div class="post w3-card-2 w3-margin-bottom">
+        <div class="post-header w3-container w3-padding-16">
+          <h3>User Name</h3>
+          <p class="w3-text-grey">Neighborhood A</p>
+        </div>
+        <div class="post-content w3-container">
+          <p>Post Content</p>
+          <img class="post-image" src="post_image.jpg" alt="Post Image">
+        </div>
+        <div class="post-actions w3-container w3-padding-16 w3-border-top">
+          <button class="w3-button w3-teal w3-round-large w3-hover-text-white">Connect</button>
+        </div>
+      </div>
+      </div>
+  </section>
+
+  <section>
+    <div id="postForm" class="w3-container w3-padding-32">
+      
+      <form class="w3-container w3-padding-16" id="postForm" action="/frentals/forms/submit_post.php" enctype="multipart/form-data" method="POST">
+        <div class="w3-row-padding">
+          <div class="w3-col m6">
+            <label for="image" class="file-icon w3-half">
+              <i id="upload" class="fa fa-camera w3-button w3-padding-large w3-container w3-round-large w3-text-teal"></i>
+            </label>
+            <input type="file" id="image" class="w3-half w3-padding-large w3-container w3-round-large" name="image" placeholder="Post Image">
+          </div>
+          <div class="w3-col m6">
+            <input class="w3-input w3-padding-large w3-border w3-round-large" type="text" id="postContent" name="content" placeholder="Post Content">
+          </div>
+        </div>
+        <div class="w3-container w3-center">
+          <button name="submit" id="submit" class="w3-button w3-teal w3-round-large w3-padding-large w3-hover-text-white">
+            <i class="fa fa-send-o"></i> Post
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </section>
+
+  <section id="notifications" class="w3-container w3-padding-16">
+    <h2 class="w3-center w3-text-black">Notifications</h2>
+    <div class="w3-panel w3-pale-yellow w3-padding">
+      <p>No new notifications.</p>
+    </div>
+  </section>
+
+  <section id="profile" class="w3-container w3-padding-16">
+    <h2 class="w3-center w3-text-black">Profile</h2>
+    <div class="w3-card">
+      <div class="w3-container">
+        <h3>User Name</h3>
+        <p>User Bio</p>
+        <p>Location: Neighborhood A</p>
+        <p>Followers: 1000</p>
+        <p>Following: 500</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="w3-container w3-padding-64 w3-center w3-black">
+    <p>&copy; 2023 Location-Based Community Page. All rights reserved.</p>
+  </footer>
+
+  <script type="text/javascript" src="/frentals/js/community.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</body>
+</html>
+  

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Frentals</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+body, html {
+  height: 100%;
+  line-height: 1.8;
+}
+
+/* Full height image header */
+.bgimg-1 {
+  background-position: center;
+  background-size: cover;
+  filter: grayscale(1);
+  background-image: url("/frentals/images/back2.mp4");
+  min-height: 100%;
+  background-color: black;
+}
+
+.w3-bar .w3-button {
+  padding: 16px;
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-card" id="myNavbar">
+    <a href="#home" class="w3-bar-item w3-button w3-wide">Frentals</a>
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small">
+      <a href="main.html" class="w3-bar-item w3-button">HOME</a>
+      <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
+      <a href="community.html" class="w3-bar-item w3-button"> COMMUNITY</a>
+      <a href="all_product.html" class="w3-bar-item w3-button"> PRODUCTS</a>
+      <a href="#contact" class="w3-bar-item w3-button"> CONTACT</a>
+      <a href="index.html" class="w3-bar-item w3-button"><i class=" fa fa-arrow-right"></i> LOGOUT</a>
+      
+    </div>
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+      
+      <a href="main.html" onclick="w3_close()" class="w3-bar-item w3-button">HOME</a>
+      <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+      <a href="community.html" onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-user"></i> COMMUNITY</a>
+      <a href="all_product.html" onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-th"></i> PRODUCTS</a>
+      <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+      <a href="index.html" onclick="w3_close()" class="w3-bar-item w3-button"><i class=" fa fa-arrow-right"></i>LOGOUT</a>
+      
+</nav>
+
+<!-- Header with full-height image -->
+<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-left w3-text-white" style="padding:48px">
+    <span class="w3-jumbo w3-hide-small">Rent Anything You Need</span><br>
+    <span class="w3-xxlarge w3-hide-large w3-hide-medium">Rent Anything You Need</span><br>
+    <span  class="w3-large w3-margin-bottom" >Find the perfect rentals for your needs with Frentals.</span>
+    
+    <div style="transform:translateY(100px)" class="w3-display-bottommiddle" >
+      <p><button id="owner_btn" onclick="document.getElementById('owner').style.display='block'" class="w3-button w3-display-bottomleft w3-white w3-padding-large w3-large w3-margin w3-opacity w3-hover-opacity-off">Owner</button></p>
+      <p><a href="community.html"   class="w3-button w3-display-bottomright w3-white w3-padding-large w3-large w3-margin w3-opacity w3-hover-opacity-off">Rentee</a></p>
+    </div>
+    
+  </div> 
+  
+  <div class="w3-display-bottomleft w3-text-grey w3-large" style="padding:24px 48px">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div>
+</header>
+
+
+
+<!-- owner Modal -->
+<div id="owner" class="w3-modal">
+  <div class="w3-modal-content w3-animate-zoom">
+    <div class="w3-container w3-black">
+      <span onclick="document.getElementById('owner').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
+      <h1>Owner Profile Form</h1>
+    </div>
+    <div class="w3-container" id="loginform">
+      <p>Fill the form, list your products for rent:</p>
+      <form action="/frentals/forms/owner_form.php" target="_blank">
+        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required id="Name"></p>
+        <p><input class="w3-input w3-padding-16 w3-border" type="tel" placeholder="Phone" required id="Phone"></p>
+        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="City" required id="City"></p>
+        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Product Title" required id="Product_title"></p>
+        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Product Description" required id="Product_description"></p>
+        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Price Per Day" required id="Price"></p>
+        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Product Condition" required id="Condition"></p>
+        <!-- <p><input class="w3-input w3-padding-16 w3-border" type="number" placeholder="How many people" required name="People"></p>
+        <p><input class="w3-input w3-padding-16 w3-border" type="datetime-local" placeholder="Date and time" required name="date" value="2020-11-16T20:00"></p> -->
+        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Anything More" required id="More"></p>
+        <p>
+          <label for="image" class="file-icon">Upload Image
+            <i id="upload" style="font-size:14px;color: grey; border-color: white;"
+             class="fa fa-camera w3-button w3-padding-large w3-container w3-round-xlarge"></i>
+          </label>
+          <input type="file" id="image" style="position: absolute;left: -9999px;" class="w3-input w3-padding-16 w3-border"
+             name="image" placeholder="Post Image">
+            
+        </p>
+        <p><button id="submit" class="w3-button" type="submit">Submit</button></p>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- About Section -->
+<div class="w3-container" style="padding:128px 16px" id="about">
+  <h3 class="w3-center">ABOUT FRENTALS</h3>
+  <p class="w3-center" >Frentals is a community-driven rental platform that connects people within the local community to share and rent items, providing various benefits:</p>
+    
+  <p class="w3-center w3-large">Key features of our company</p>
+
+  <div class="w3-row-padding w3-center" style="margin-top:64px">
+    <div class="w3-col">
+      <i class="fas fa-users w3-margin-bottom w3-jumbo w3-center"></i>
+      <p class="w3-large">Local Community</p>
+      <p>Join a vibrant community of renters and lend items to others, promoting sustainability and reducing waste.</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fas fa-dollar-sign w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Earn</p>
+      <p>List your own items for rent and earn extra income. Monetize your unused belongings and contribute to the sharing economy.</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fas fa-exclamation-triangle w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Emergency Services</p>
+      <p>Get access to essential items in emergency situations when you need them the most.</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fas fa-check-circle w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Convenience</p>
+      <p>Rent anything you need, from tools and equipment to party supplies and outdoor gear, all in one place.</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fas fa-shield-alt w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Trust and Security</p>
+      <p> Our platform ensures secure transactions and user verification for a trustworthy rental experience.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- Promo Section - "We know design" -->
+<div class="w3-container w3-light-grey" style="padding:128px 16px">
+  <div class="w3-row-padding">
+    <div class="w3-col m6">
+      <h3>We know design.</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>tempor incididunt ut labore et dolore.</p>
+      <p><a href="#work" class="w3-button w3-black"><i class="fa fa-th"> </i> View Our Works</a></p>
+    </div>
+    <div class="w3-col m6">
+      <img class="w3-image w3-round-large" src="/images/sustainable_slide.png" alt="Buildings" width="700" height="394">
+    </div>
+  </div>
+</div>
+
+<!-- Team Section -->
+<div class="w3-container" style="padding:128px 16px" id="team">
+  <h3 class="w3-center">THE TEAM</h3>
+  <p class="w3-center w3-large">The ones who runs this company</p>
+  <div class="w3-row-padding w3-grayscale" style="margin-top:64px">
+    <div class="w3-col l3 m6 w3-margin-bottom w3-margin-left">
+      <div class="w3-card ">
+        <img src="/images/sufpro.jpeg" alt="John" style="width:100%">
+        <div class="w3-container">
+          <h3>Mohammed Sufyaan Talish</h3>
+          <p class="w3-opacity">CEO & Founder</p>
+          <p>AI enthusiast and great learner.</p>
+          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card">
+        <img src="/frentals/images/sustainable_slide2.png" alt="Jane" style="width:100%">
+        <div class="w3-container">
+          <h3>Anja Doe</h3>
+          <p class="w3-opacity">Art Director</p>
+          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card">
+        <img src="/frentals/images/sustainable_slide2.png" alt="Mike" style="width:100%">
+        <div class="w3-container">
+          <h3>Mike Ross</h3>
+          <p class="w3-opacity">Web Designer</p>
+          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card">
+        <img src="/frentals/images/sustainable_slide2.png" alt="Dan" style="width:100%">
+        <div class="w3-container">
+          <h3>Dan Star</h3>
+          <p class="w3-opacity">Designer</p>
+          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+        </div>
+      </div>
+    </div> -->
+  </div>
+</div>
+
+<!-- Promo Section "Statistics" -->
+<div class="w3-container w3-row w3-center w3-dark-grey w3-padding-64">
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">14+</span>
+    <br>Partners
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">55+</span>
+    <br>Projects Done
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">89+</span>
+    <br>Happy Clients
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">150+</span>
+    <br>Meetings
+  </div>
+</div>
+
+<!-- Work Section -->
+<div class="w3-container" style="padding:128px 16px" id="work">
+  <h3 class="w3-center">OUR WORK</h3>
+  <p class="w3-center w3-large">What we've done for people</p>
+
+  <!-- <div class="w3-row-padding" style="margin-top:64px">
+    <div class="w3-col l3 m6">
+      <img src="/frentals/images/anything_slide.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A microphone">
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="/frentals/images/sustainable_slide2.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A phone">
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="/w3images/images/tech_drone.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A drone">
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="/w3images/images/tech_sound.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Soundbox">
+    </div>
+  </div> -->
+
+  <div class="w3-row-padding w3-section">
+    <div class="w3-col l3 m6">
+      <img src="/images/sustainable_slide2.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A tablet">
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="/images/anything_slide.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A camera">
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="/images/anything_slide.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A typewriter">
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="/images/sustainable_slide2.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A tableturner">
+    </div>
+  </div>
+</div>
+
+<!-- Modal for full size images on click-->
+<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+  <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Close Modal Image">×</span>
+  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+    <img id="img01" class="w3-image">
+    <p id="caption" class="w3-opacity w3-large"></p>
+  </div>
+</div>
+
+
+<!-- Pricing Section -->
+<div class="w3-container w3-center w3-dark-grey" style="padding:128px 16px" id="pricing">
+  <h3>PRICING</h3>
+  <p class="w3-large">Choose a pricing plan that fits your needs.</p>
+  <div class="w3-row-padding" style="margin-top:64px">
+    <div class="w3-third w3-section">
+      <ul class="w3-ul w3-white w3-hover-shadow">
+        <li class="w3-black w3-xlarge w3-padding-32">Basic</li>
+        <li class="w3-padding-16"><b>1 Day</b> Time</li>
+        <li class="w3-padding-16"><b>10% mrp</b> Money</li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide">10% mrp</h2>
+          <span class="w3-opacity">per day</span>
+        </li>
+        <li class="w3-light-grey w3-padding-24">
+          <button class="w3-button w3-black w3-padding-large">Rent now</button>
+        </li>
+      </ul>
+    </div>
+    <div class="w3-third">
+      <ul class="w3-ul w3-white w3-hover-shadow">
+        <li class="w3-red w3-xlarge w3-padding-48">Pro</li>
+        <li class="w3-padding-16"><b>7 Days</b> Time</li>
+        <li class="w3-padding-16"><b>7% mrp</b> Money</li>
+        <li class="w3-padding-16"><b>3% mrp</b> Discount</li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide">7% mrp</h2>
+          <span class="w3-opacity">per day</span>
+        </li>
+        <li class="w3-light-grey w3-padding-24">
+          <button class="w3-button w3-black w3-padding-large">Rent now</button>
+        </li>
+      </ul>
+    </div>
+    <div class="w3-third w3-section">
+      <ul class="w3-ul w3-white w3-hover-shadow">
+        <li class="w3-black w3-xlarge w3-padding-32">Premium</li>
+        <li class="w3-padding-16"><b>More than 7 Days</b> Time</li>
+        <li class="w3-padding-16"><b>5% mrp</b> Money</li>
+        <li class="w3-padding-16"><b>5% mrp and more</b> More Discount</li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide">5% mrp and less</h2>
+          <span class="w3-opacity">per day</span>
+        </li>
+        <li class="w3-light-grey w3-padding-24">
+          <button class="w3-button w3-black w3-padding-large">Rent now</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Contact Section -->
+<div class="w3-container w3-light-grey" style="padding:128px 16px" id="contact">
+  <h3 class="w3-center">CONTACT</h3>
+  <p class="w3-center w3-large">Lets get in touch. Send us a message:</p>
+  <div style="margin-top:48px">
+    <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Hyderabad, INDIA</p>
+    <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: +91 151515</p>
+    <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: sufyaan4guys@gmail.com</p>
+    <br>
+    <form action="/contact.php" target="_blank">
+      <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject"></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"></p>
+      <p>
+        <button class="w3-button w3-black" type="submit">
+          <i class="fa fa-paper-plane"></i> SEND MESSAGE
+        </button>
+      </p>
+    </form>
+    <!-- Image of location/map -->
+    <img src="/images/map.jpg" class="w3-image w3-greyscale" style="width:100%;margin-top:48px">
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64">
+  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+  <div class="w3-xlarge w3-section">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div>
+  <p>Powered by <a href="https://www.instagram.com/sufyaan" title="Sufyaan" target="_blank" class="w3-hover-text-green">Sufyaan</a></p>
+</footer>
+<script type="text/javascript" src="/frentals/js/main.js"></script>
+
+<script>
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+
+// Toggle between showing and hiding the sidebar when clicking the menu icon
+var mySidebar = document.getElementById("mySidebar");
+
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+  } else {
+    mySidebar.style.display = 'block';
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Location-Based Community Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/community.css">
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body class="w3-mobile ">
+
+  <!-- Navbar (sit on top) -->
+  <div class="w3-top">
+    <div class="w3-bar  w3-card" id="myNavbar">
+      <a href="#home" class="w3-bar-item w3-button w3-wide">Frentals</a>
+      <!-- Right-sided navbar links -->
+      <div class="w3-right w3-hide-small">
+        <header>
+          <nav class="w3-sidebar w3-bar-block w3-blue w3-round-xlarge w3-display-left">
+            <a href="main.html" class="w3-bar-item w3-button w3-round-large ">
+              <i class="fa fa-arrow-left"></i></a>
+            <a href="community.html" class="w3-bar-item w3-round-xlarge w3-bar-item w3-button">Home</a><br>
+            <a href="#explore" class="w3-bar-item w3-button w3-round-xlarge">Explore</a><br>
+            <a href="#notifications" class="w3-bar-item w3-button w3-round-xlarge">Notifications</a><br>
+            <a href="#profile" class="w3-bar-item w3-button w3-round-xlarge">Profile</a><br>
+
+            <a href="index.html" class="w3-bar-item w3-button w3-round-large ">Logout</a><br>
+
+          </nav>
+        </header>
+      </div>
+      <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
+        onclick="w3_open()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Sidebar on small screens when clicking the menu icon -->
+  <nav class="w3-sidebar w3-bar-block w3-blue w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none"
+    id="mySidebar">
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+
+    <a href="main.html" onclick="w3_close()" class="w3-bar-item w3-button w3-round-large ">
+      <i class="fa fa-arrow-left"></i></a>
+    <a href="community.html" onclick="w3_close()" class="w3-bar-item w3-round-xlarge w3-bar-item w3-button">Home</a><br>
+    <a href="#explore" onclick="w3_close()" class="w3-bar-item w3-button w3-round-xlarge">Explore</a><br>
+    <a href="#notifications" onclick="w3_close()" class="w3-bar-item w3-button w3-round-xlarge">Notifications</a><br>
+    <a href="#profile" onclick="w3_close()" class="w3-bar-item w3-button w3-round-xlarge">Profile</a><br>
+
+    <a href="index.html" onclick="w3_close()" class="w3-bar-item w3-button w3-round-large ">Logout</a><br>
+
+  </nav>
+
+
+  <!-- <header >
+    <nav class="w3-sidebar w3-bar-block w3-blue w3-round-xlarge w3-display-left">
+      <a href="main.html" class=" w3-button w3-round-large ">
+        <i class="fa fa-arrow-left"></i></a>
+      <a href="community.html" class="w3-round-xlarge w3-bar-item w3-button">Home</a><br>
+      <a href="#explore" class="w3-bar-item w3-button w3-round-xlarge">Explore</a><br>
+      <a href="#notifications" class="w3-bar-item w3-button w3-round-xlarge">Notifications</a><br>
+      <a href="#profile" class="w3-bar-item w3-button w3-round-xlarge">Profile</a><br>
+
+      <a href="index.html" class="w3-bar-item w3-button w3-round-large ">Logout</a><br>
+
+    </nav>
+  </header> -->
+
+  <div id="locContainer" class="w3-container w3-padding-16 w3-center">
+    <h3 class="w3-text-black">Location: <i class="fa fa-map-marker w3-text-teal"></i> City</h3>
+    <button class="w3-button w3-teal w3-round-large w3-hover-text-white">Refresh Location</button>
+  </div>
+
+  <section id="home" class="w3-container w3-center w3-margin">
+    <h1>Welcome to the Community Page</h1>
+    <p>Discover and connect with people in your local area.</p>
+  </section>
+
+  <section id="explore">
+    <h2 class="w3-center">Explore</h2>
+
+
+
+    <!-- Add more posts here -->
+    <div id="post1" class="w3-container w3-content w3-padding" style="max-width:700px">
+
+      <div id="posts" class="w3-row-padding ">
+        <!-- <button class="w3-button w3-block w3-dark-grey w3-round-xlarge">+ Connect</button> -->
+    </div>
+    </div>
+
+
+    <!-- post form -->
+    <section>
+      <div id="postForm" class="w3-container">
+        <!-- <h2>Create a New Post</h2> -->
+        <form class="w3-container w3-bar w3-show-inline-block w3-content w3-padding" id="postForm"
+          action="forms/submit_post.php" enctype="multipart/form-data" method="POST">
+          <!-- Form fields -->
+          <input type="hidden" id="postLocation" name="location" value="city">
+          <input type="text" hidden name="hidden" id="hidden">
+          <label for="image" class="file-icon">
+            <i id="upload"
+              style="font-size:14px;color: grey;margin-right: 7%;margin-bottom: 2.5vw; border-color: white;"
+              class="fa fa-camera w3-button w3-padding-large w3-container w3-round-xlarge"></i>
+          </label>
+          <input type="file" id="image" class="w3-padding-small w3-container  w3-round-xlarge w3-button" name="image"
+            placeholder="Post Image">
+
+          <input class="w3-input w3-padding-large w3-border w3-round-large w3-center" type="text" id="postContent"
+            name="content" placeholder="Post Content">
+
+          <!-- Submit button -->
+          <button name="submit" id="submit" class="w3-padding-large w3-container w3-round-xlarge w3-button"
+            type="submit"><i class="fa fa-send-o" style=" font-size:14px;color: grey; border-color: white;"></i>
+          </button>
+
+        </form>
+
+
+      </div>
+
+    </section>
+    <!-- <section id="notifications" class="w3-container">
+      <h2 class="w3-center">Notifications</h2>
+      <div class="w3-panel w3-pale-yellow w3-padding">
+        <p>No new notifications.</p>
+      </div>
+    </section>
+
+    <section id="profile" class="w3-container">
+      <h2 class="w3-center">Profile</h2>
+      <div class="w3-card">
+        <div class="w3-container">
+          <h3>User Name</h3>
+          <p>User Bio</p>
+          <p>Location: Neighborhood A</p>
+          <p>Followers: 1000</p>
+          <p>Following: 500</p>
+        </div>
+      </div>
+    </section> -->
+
+    <footer class="w3-container w3-padding-64 w3-center w3-dark-grey">
+      <p>&copy; 2023 Frentals. All rights reserved.</p>
+    </footer>
+
+    <script type="text/javascript" src="js/community.js"></script>
+
+    <!-- Include jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>// Toggle between showing and hiding the sidebar when clicking the menu icon
+      var mySidebar = document.getElementById("mySidebar");
+
+      function w3_open() {
+        if (mySidebar.style.display === 'block') {
+          mySidebar.style.display = 'none';
+        } else {
+          mySidebar.style.display = 'block';
+        }
+      }
+
+      // Close the sidebar with the close button
+      function w3_close() {
+        mySidebar.style.display = "none";
+      }
+    </script>
+
+</body>
+
+</html>

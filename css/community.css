@@ -1,0 +1,106 @@
+body{
+  background-color: rgb(12, 12, 12);
+  color: #fdf8f8;
+}
+#locContainer{
+    position: fixed;
+    top: 0;
+    right:  0;
+    height: 50px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    padding-top: 10px;
+  }
+  #locContainer:hover{
+    background-color: white;
+    color: black;
+  }
+  #locContainer:active{
+    background-color: black;
+    color: white;
+  }
+  #post1{
+    align-content: center;
+    text-align: center;
+    font-size: 15px;
+    padding-top: 10px;
+}
+  .new img{
+    height: 2px;
+    width: 2px;
+  }
+  #upload,#postContent,#submit{
+    display: inline-block;
+    position: fixed;
+    bottom: 0;
+    right: 25%;
+    max-width:650px;
+    margin: 30px;
+  }
+  #upload{
+
+    z-index: 1;
+  }
+  #image{
+  position: absolute;
+  left: -9999px;
+  }
+  nav{
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  input {
+  width: 200px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+#posts{
+  height: 2000px;
+ }
+ #home{
+  padding: 82px 24px;
+ }
+@media screen and (max-width:800px) {
+ #post1{
+  max-width: none;
+  font-size: 25px;
+ }
+ #posts{
+  height: 2000px;
+ }
+ h1{
+  font-size: 56px;
+  margin-top: 0px;
+ }
+ 
+ #upload{
+  font-size: 14px;
+  right: 10%;
+  bottom: 3vh; 
+}
+ #submit{
+  font-size: 24px;
+ right: 1%;
+ margin-right: 0px; 
+}
+ #postContent{
+  right: 1%;
+  max-width: 350px;
+  font-size: 20px;
+  margin-right: 10px;
+  margin-left: 0px;
+ }
+ #locContainer{
+  font-size: 10px;
+  padding: 10px;
+  z-index: 1;
+  top: 50px;
+  height: 0;
+ }
+ #postinner{
+  margin-left: 0%;
+ }
+}
